@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common HTML Tags</title>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════
+         HEADINGS  h1 – h6
+    ════════════════════════════════════════════ -->
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         PARAGRAPH & LINE BREAK
+    ════════════════════════════════════════════ -->
+    <p>This is a paragraph. It is the most common tag for displaying text on a web page.</p>
+    <p>This is a second paragraph.<br>This sentence starts on a new line using a &lt;br&gt; tag.</p>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         TEXT FORMATTING
+    ════════════════════════════════════════════ -->
+    <h2>Text Formatting</h2>
+
+    <p><strong>Bold text</strong> using &lt;strong&gt;</p>
+    <p><b>Bold text</b> using &lt;b&gt;</p>
+    <p><em>Italic text</em> using &lt;em&gt;</p>
+    <p><i>Italic text</i> using &lt;i&gt;</p>
+    <p><u>Underlined text</u> using &lt;u&gt;</p>
+    <p><s>Strikethrough text</s> using &lt;s&gt;</p>
+    <p><mark>Highlighted text</mark> using &lt;mark&gt;</p>
+    <p><small>Small text</small> using &lt;small&gt;</p>
+    <p><big>Big text</big> using &lt;big&gt;</p>
+    <p>H<sub>2</sub>O — subscript using &lt;sub&gt;</p>
+    <p>x<sup>2</sup> — superscript using &lt;sup&gt;</p>
+    <p>Inline code: <code>console.log("Hello")</code> using &lt;code&gt;</p>
+    <p><abbr title="HyperText Markup Language">HTML</abbr> — abbreviation using &lt;abbr&gt;</p>
+    <p><cite>The Web Developer Handbook</cite> — citation using &lt;cite&gt;</p>
+    <p><q>HTML is the backbone of the web.</q> — inline quote using &lt;q&gt;</p>
+
+    <blockquote>
+        "The best way to learn HTML is to practice writing it every single day."
+        — Anonymous Developer
+    </blockquote>
+
+    <pre>
+/* Preformatted text keeps spaces and line breaks */
+function greet(name) {
+    return "Hello, " + name;
+}
+    </pre>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         LINKS
+    ════════════════════════════════════════════ -->
+    <h2>Links</h2>
+
+    <p><a href="https://www.google.com">External link</a> — opens in same tab</p>
+    <p><a href="https://www.google.com" target="_blank">External link</a> — opens in new tab</p>
+    <p><a href="mailto:example@email.com">Email link</a></p>
+    <p><a href="tel:+1234567890">Phone link</a></p>
+    <p><a href="#headings-section">Anchor link</a> — jumps to an id on the page</p>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         IMAGE
+    ════════════════════════════════════════════ -->
+    <h2>Image</h2>
+
+    <img src="https://via.placeholder.com/400x200" alt="A placeholder image" width="400" height="200">
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         LISTS
+    ════════════════════════════════════════════ -->
+    <h2>Unordered List &lt;ul&gt;</h2>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Nested list:
+            <ul>
+                <li>React</li>
+                <li>Vue</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Ordered List &lt;ol&gt;</h2>
+    <ol>
+        <li>Plan</li>
+        <li>Design</li>
+        <li>Build</li>
+        <li>Test</li>
+        <li>Deploy</li>
+    </ol>
+
+    <h2>Description List &lt;dl&gt;</h2>
+    <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language — defines the structure of a web page.</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets — controls the visual presentation.</dd>
+        <dt>JavaScript</dt>
+        <dd>A scripting language that adds interactivity to web pages.</dd>
+    </dl>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         TABLE
+    ════════════════════════════════════════════ -->
+    <h2>Table</h2>
+
+    <table border="1">
+        <caption>Student Information</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alice</td>
+                <td>22</td>
+                <td>Web Development</td>
+            </tr>
+            <tr>
+                <td>Bob</td>
+                <td>25</td>
+                <td>Data Science</td>
+            </tr>
+            <tr>
+                <td>Carol</td>
+                <td>20</td>
+                <td>UI/UX Design</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total Students: 3</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         FORM
+    ════════════════════════════════════════════ -->
+    <h2>Form</h2>
+
+    <form action="#" method="get">
+
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890"><br><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="1" max="120"><br><br>
+
+        <label for="website">Website:</label><br>
+        <input type="url" id="website" name="website" placeholder="https://example.com"><br><br>
+
+        <label for="color">Favourite Color:</label><br>
+        <input type="color" id="color" name="color"><br><br>
+
+        <label for="range">Skill Level (1–10):</label><br>
+        <input type="range" id="range" name="range" min="1" max="10"><br><br>
+
+        <label for="search">Search:</label><br>
+        <input type="search" id="search" name="search" placeholder="Search..."><br><br>
+
+        <label for="course">Select Course:</label><br>
+        <select id="course" name="course">
+            <option value="">-- Choose a course --</option>
+            <option value="html">HTML Basics</option>
+            <option value="css">CSS Styling</option>
+            <option value="js">JavaScript</option>
+        </select><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" cols="40"
+            placeholder="Write your message here..."></textarea><br><br>
+
+        <fieldset>
+            <legend>Gender</legend>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+        </fieldset><br>
+
+        <fieldset>
+            <legend>Interests</legend>
+            <input type="checkbox" id="coding" name="interests" value="coding">
+            <label for="coding">Coding</label><br>
+            <input type="checkbox" id="design" name="interests" value="design">
+            <label for="design">Design</label><br>
+            <input type="checkbox" id="gaming" name="interests" value="gaming">
+            <label for="gaming">Gaming</label>
+        </fieldset><br>
+
+        <label for="file">Upload File:</label><br>
+        <input type="file" id="file" name="file"><br><br>
+
+        <input type="hidden" name="token" value="abc123">
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         SEMANTIC / STRUCTURAL ELEMENTS
+    ════════════════════════════════════════════ -->
+    <h2>Semantic Elements</h2>
+
+    <header>
+        <h3>This is a &lt;header&gt;</h3>
+        <p>Typically contains a logo, site title, and navigation.</p>
+    </header>
+
+    <nav>
+        <h3>This is a &lt;nav&gt;</h3>
+        <a href="#">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+        <h3>This is a &lt;main&gt;</h3>
+
+        <section>
+            <h3>This is a &lt;section&gt;</h3>
+            <p>A thematic grouping of content.</p>
+        </section>
+
+        <article>
+            <h3>This is an &lt;article&gt;</h3>
+            <p>Self-contained, independently distributable content.</p>
+        </article>
+
+        <aside>
+            <h3>This is an &lt;aside&gt;</h3>
+            <p>Content related to the main content — like a sidebar tip.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <h3>This is a &lt;footer&gt;</h3>
+        <p>&copy; 2026 Web Development Summer Bootcamp — Week 1, Day 1</p>
+    </footer>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         DIV & SPAN  (generic containers)
+    ════════════════════════════════════════════ -->
+    <h2>Div &amp; Span</h2>
+
+    <div>
+        <p>This paragraph is inside a &lt;div&gt; — a block-level container.</p>
+        <p>The word <span>span</span> is wrapped in a &lt;span&gt; — an inline container.</p>
+    </div>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         MEDIA
+    ════════════════════════════════════════════ -->
+    <h2>Media</h2>
+
+    <h3>Audio &lt;audio&gt;</h3>
+    <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h3>Video &lt;video&gt;</h3>
+    <video width="400" height="240" controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video element.
+    </video>
+
+    <h3>Iframe &lt;iframe&gt;</h3>
+    <iframe width="400" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"
+        frameborder="0" allowfullscreen>
+    </iframe>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         DETAILS & SUMMARY
+    ════════════════════════════════════════════ -->
+    <h2>Details &amp; Summary</h2>
+
+    <details>
+        <summary>Click to expand</summary>
+        <p>This content is hidden by default and shown when the user clicks the summary.</p>
+    </details>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         PROGRESS & METER
+    ════════════════════════════════════════════ -->
+    <h2>Progress &amp; Meter</h2>
+
+    <label>Course Progress:</label><br>
+    <progress value="70" max="100">70%</progress>
+
+    <br><br>
+
+    <label>Disk Usage:</label><br>
+    <meter value="6" min="0" max="10">6 out of 10</meter>
+
+    <hr>
+
+    <!-- ═══════════════════════════════════════════
+         HTML ENTITIES (common special characters)
+    ════════════════════════════════════════════ -->
+    <h2>Common HTML Entities</h2>
+    <p>&amp; — ampersand</p>
+    <p>&lt; — less-than</p>
+    <p>&gt; — greater-than</p>
+    <p>&copy; — copyright</p>
+    <p>&reg; — registered trademark</p>
+    <p>&nbsp; — non-breaking space</p>
+    <p>&mdash; — em dash</p>
+
+</body>
+
+</html>
