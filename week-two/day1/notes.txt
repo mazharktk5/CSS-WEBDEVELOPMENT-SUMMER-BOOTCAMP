@@ -1,0 +1,1445 @@
+================================================================================
+                   WEEK TWO - DAY 1: CSS FUNDAMENTALS & BEYOND
+                         
+================================================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. WHAT IS CSS?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CSS stands for Cascading Style Sheets.
+It is a language used to STYLE HTML elements on a web page.
+CSS controls how things LOOK — colors, sizes, layouts, fonts, spacing, and more.
+
+Think of it this way:
+  - HTML  = the SKELETON of a webpage (structure)
+  - CSS   = the CLOTHES and MAKEUP (style/design)
+  - JS    = the MUSCLES (behavior/interactivity)
+
+Without CSS, every webpage would look like a plain black-and-white Word document.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. WHY CSS?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Reasons to use CSS:
+
+  ✔ Separation of concerns — keeps design separate from content
+  ✔ Reusability — one CSS file can style hundreds of HTML pages
+  ✔ Consistency — same look and feel across the entire website
+  ✔ Easy maintenance — change one file, update the whole site
+  ✔ Responsive design — make websites look good on phones, tablets, desktops
+  ✔ Animations & effects — create smooth, modern visual experiences
+
+Without CSS, you would have to write style directly on every single HTML tag
+(using old HTML attributes like <font>, <bgcolor> etc.) — very messy!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. HTML vs CSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  HTML                              CSS
+  ────────────────────────────────  ────────────────────────────────
+  Defines STRUCTURE & CONTENT       Defines STYLE & APPEARANCE
+  Uses TAGS (<h1>, <p>, <div>)      Uses RULES (selector { property: value })
+  Tells browser WHAT to show        Tells browser HOW to show it
+  .html file extension              .css file extension
+  Cannot style by itself            Cannot display content by itself
+
+Example:
+  HTML creates: <h1>Hello World</h1>   → shows a plain heading
+  CSS styles it: h1 { color: red; }    → makes it red
+
+They work TOGETHER. HTML provides the content, CSS makes it beautiful.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. CSS SYNTAX
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A CSS rule has this structure:
+
+
+h1  p img
+    selector {
+        property: value;
+        property: value;
+    }
+
+  - selector   → WHICH element to style
+  - property   → WHAT aspect to change (color, size, font, etc.)
+  - value      → HOW to change it (red, 20px, bold, etc.)
+  - The property and value are separated by a COLON  :
+  - Each declaration ends with a SEMICOLON  ;
+  - The declarations are wrapped in CURLY BRACES  { }
+
+Example:
+
+    h1 {
+        color: blue;
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+You can have multiple properties inside one rule block.
+The semicolon after the last property is technically optional, but always include
+it — it is good practice and prevents errors when you add more properties later.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. SELECTOR, PROPERTY, VALUE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Let us break each part down clearly:
+
+  SELECTOR
+  ─────────
+  The part that targets the HTML element(s) you want to style.
+  Examples: p, h1, .card, #title
+
+  PROPERTY
+  ─────────
+  The style attribute you want to change.
+  Examples: color, background-color, font-size, margin, padding
+
+  VALUE
+  ──────
+  The specific setting for that property.
+  Examples: red, #ff0000, 16px, 2rem, bold, center
+
+Full example showing all three parts labelled:
+
+         selector
+            │
+           ┌┴┐
+           p {
+               color   :   red   ;
+              ───────     ─────
+              property    value
+           }
+
+Another example with multiple declarations:
+
+    p {
+        color: green;          /* property: color,       value: green   */
+        font-size: 18px;       /* property: font-size,   value: 18px    */
+        text-align: center;    /* property: text-align,  value: center  */
+    }
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. INLINE CSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Inline CSS is written DIRECTLY inside the HTML tag using the style attribute.
+
+Syntax:
+    <tagname style="property: value; property: value;">
+
+Example:
+    <h1 style="color: red; font-size: 40px;">Hello World</h1>
+    <p style="color: blue; background-color: yellow;">This is a paragraph.</p>
+
+Pros:
+  ✔ Quick and easy for a single element
+  ✔ Highest specificity (overrides other styles)
+
+Cons:
+  ✘ Very hard to maintain — changes must be made one element at a time
+  ✘ Mixes content and design (bad practice)
+  ✘ Cannot reuse styles
+  ✘ Makes HTML messy and unreadable
+
+USE CASE: Only for quick tests, or when a specific element needs a one-off style.
+Avoid using inline CSS in real projects.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. INTERNAL CSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Internal CSS is written inside the <head> section of the HTML file,
+inside a <style> tag.
+
+Example:
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            body {
+                background-color: lightgray;
+            }
+
+            h1 {
+                color: darkblue;
+                text-align: center;
+            }
+
+            p {
+                font-size: 18px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to CSS!</h1>
+        <p>This paragraph is styled with internal CSS.</p>
+    </body>
+    </html>
+
+Pros:
+  ✔ Cleaner than inline CSS
+  ✔ All styles in one place within the file
+  ✔ Good for single-page projects
+
+Cons:
+  ✘ Styles only apply to ONE HTML file
+  ✘ Cannot be reused across multiple pages
+  ✘ Makes the HTML file larger
+
+USE CASE: Small single-page websites or quick demos.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+8. EXTERNAL CSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+External CSS is written in a SEPARATE .css file, then linked to the HTML file
+using a <link> tag in the <head>.
+
+Step 1 — Create style.css:
+    body {
+        background-color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        color: navy;
+        text-align: center;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+Step 2 — Link it in index.html:
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <p>Styled with external CSS!</p>
+    </body>
+    </html>
+
+Pros:
+  ✔ BEST PRACTICE — complete separation of HTML and CSS
+  ✔ One CSS file can style many HTML pages
+  ✔ Very easy to maintain and update
+  ✔ Browser can CACHE the CSS file → faster loading
+
+Cons:
+  ✘ Extra HTTP request to load the file (minor issue)
+  ✘ Page may flash unstyled for a split second on very slow connections
+
+USE CASE: Every real-world website. Always prefer external CSS.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  COMPARISON TABLE: Inline vs Internal vs External
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Feature           Inline          Internal         External
+  ──────────────────────────────────────────────────────────────
+  Location          Inside tag      Inside <style>   Separate .css file
+  Reusability       None            Single page      All pages
+  Maintenance       Very hard       Medium           Very easy
+  Best practice?    No              Sometimes        YES
+  Priority          Highest         Medium           Lowest
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+9. ELEMENT SELECTOR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The element selector targets ALL elements of a specific HTML tag.
+
+Syntax:
+    tagname { ... }
+
+Examples:
+
+    p {
+        color: gray;
+        font-size: 16px;
+    }
+    /* Targets ALL <p> elements on the page */
+
+    h1 {
+        color: darkblue;
+        text-transform: uppercase;
+    }
+    /* Targets ALL <h1> elements */
+
+    a {
+        color: orange;
+        text-decoration: none;
+    }
+    /* Targets ALL <a> (link) elements */
+
+    button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    /* Targets ALL <button> elements */
+
+Key point: If you have 10 <p> tags on the page, ONE selector styles ALL of them.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+10. CLASS SELECTOR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A class selector targets elements that have a specific class attribute.
+In CSS, class selectors start with a DOT (.)
+
+Syntax:
+    HTML:  class="classname"
+    CSS:   .classname { ... }
+
+Example:
+
+    <!-- HTML -->
+    <p class="highlight">This text is highlighted.</p>
+    <p>This is a normal paragraph.</p>
+    <p class="highlight">This is also highlighted.</p>
+    <div class="highlight">Even a div can use the same class!</div>
+
+    /* CSS */
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+        color: black;
+    }
+
+Result: Only elements with class="highlight" get the yellow background.
+        The second <p> stays unstyled.
+
+More examples:
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary {
+        background-color: blue;
+        color: white;
+        padding: 10px 24px;
+        border-radius: 5px;
+    }
+
+Key points:
+  - The same class can be applied to MANY elements
+  - One element can have MULTIPLE classes (covered next)
+  - Classes are REUSABLE — great for components
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+11. ID SELECTOR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+An ID selector targets ONE SPECIFIC element that has a unique id attribute.
+In CSS, ID selectors start with a HASH (#)
+
+Syntax:
+    HTML:  id="idname"
+    CSS:   #idname { ... }   
+
+Example:
+
+    <!-- HTML -->
+    <header id="main-header">
+        <h1>My Website</h1>
+    </header>
+
+    <nav id="main-nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+    </nav>
+
+    /* CSS */
+    #main-header {
+        background-color: navy;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #main-nav {
+        background-color: #333;
+        padding: 10px;
+    }
+
+Key rules:
+  - An ID must be UNIQUE on the page — no two elements can share the same ID
+  - An element can only have ONE ID
+  - ID has HIGHER specificity than class (more on this next)
+
+  CLASS vs ID:
+  ┌──────────────┬────────────────────────────┬──────────────────────────────┐
+  │              │ Class                      │ ID                           │
+  ├──────────────┼────────────────────────────┼──────────────────────────────┤
+  │ Symbol       │ . (dot)                    │ # (hash)                     │
+  │ Reusability  │ Many elements              │ One unique element           │
+  │ Specificity  │ Lower                      │ Higher                       │
+  │ Best use     │ Styling components         │ Targeting unique sections    │
+  └──────────────┴────────────────────────────┴──────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+12. MULTIPLE CLASSES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+An HTML element can have MORE THAN ONE class at the same time.
+Separate class names with a SPACE inside the quotes.
+
+Syntax:
+    <element class="class1 class2 class3">
+
+Example:
+
+    <!-- HTML -->
+    <button class="btn large red">Delete</button>
+    <button class="btn small green">Save</button>
+    <button class="btn large blue">Submit</button>
+
+    /* CSS */
+    .btn {
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .large  { padding: 15px 30px; font-size: 18px; }
+    .small  { padding: 5px 12px;  font-size: 12px; }
+
+    .red    { background-color: red;   color: white; }
+    .green  { background-color: green; color: white; }
+    .blue   { background-color: blue;  color: white; }
+
+This is the power of multiple classes:
+  - .btn gives ALL buttons the common base styles
+  - .large / .small controls the SIZE independently
+  - .red / .green / .blue controls the COLOR independently
+
+This approach is called "utility-based styling" and is the foundation of
+frameworks like Bootstrap and Tailwind CSS.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+13. CSS SPECIFICITY (PRIORITY)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+When multiple CSS rules target the same element, which one WINS?
+The answer is SPECIFICITY — a scoring system that determines priority.
+
+SPECIFICITY HIERARCHY (lowest to highest):
+  1. Element selector         →  score: 0,0,1
+  2. Class selector           →  score: 0,1,0
+  3. ID selector              →  score: 1,0,0
+  4. Inline style             →  highest (overrides all above)
+  5. !important               →  nuclear option (overrides everything)
+
+Think of it as a 3-column score:  [ID] [CLASS] [ELEMENT]
+
+  Selector            Score       Explanation
+  ──────────────────────────────────────────────────────────────────────────
+  p                   0,0,1       1 element
+  .card               0,1,0       1 class
+  #header             1,0,0       1 ID
+  div p               0,0,2       2 elements
+  .card p             0,1,1       1 class + 1 element
+  #header .nav a      1,1,1       1 ID + 1 class + 1 element
+  Inline style        won't fit in this table — beats all of the above
+
+Example:
+
+    /* These three rules all target the same <p> */
+
+    p {
+        color: black;       /* specificity: 0,0,1 */
+    }
+
+    .text {
+        color: blue;        /* specificity: 0,1,0 — WINS over element */
+    }
+
+    #intro {
+        color: red;         /* specificity: 1,0,0 — WINS over class */
+    }
+
+    <!-- HTML -->
+    <p id="intro" class="text">What color am I?</p>
+    /* Answer: RED — because #intro has the highest specificity */
+
+Using !important (use sparingly — it is a last resort):
+
+    p {
+        color: black !important;  /* overrides EVERYTHING, even inline styles */
+    }
+
+IMPORTANT RULE: When specificity is equal, the LAST rule written wins.
+This is the "Cascade" in Cascading Style Sheets.
+
+    p { color: red; }
+    p { color: blue; }   /* This wins because it comes LAST */
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+14. COLORS IN CSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CSS supports multiple ways to define colors:
+
+────────────────────────────────────────
+A) COLOR NAMES
+────────────────────────────────────────
+
+CSS has 140+ built-in named colors. Simple and readable.
+
+    h1 { color: red; }
+    p  { color: tomato; }
+    div { background-color: lightblue; }
+    span { color: cornflowerblue; }
+
+Common color names:
+    red, green, blue, yellow, orange, purple, pink, white, black,
+    gray, silver, gold, navy, teal, cyan, magenta, lime, coral,
+    salmon, khaki, lavender, maroon, olive, skyblue, tomato, violet
+
+When to use: Quick demos, simple projects, or when you know the exact name.
+
+────────────────────────────────────────
+B) RGB (Red, Green, Blue)
+────────────────────────────────────────
+
+RGB defines a color by mixing three channels:
+  - Red   (0–255)
+  - Green (0–255)
+  - Blue  (0–255)
+
+    0   = none of that color
+    255 = full intensity of that color
+
+Syntax:
+    color: rgb(red, green, blue);
+
+Examples:
+    color: rgb(255, 0, 0);        /* Pure Red */
+    color: rgb(0, 255, 0);        /* Pure Green */
+    color: rgb(0, 0, 255);        /* Pure Blue */
+    color: rgb(0, 0, 0);          /* Black */
+    color: rgb(255, 255, 255);    /* White */
+    color: rgb(128, 128, 128);    /* Gray */
+    color: rgb(255, 165, 0);      /* Orange */
+    color: rgb(75, 0, 130);       /* Indigo */
+
+RGBA — RGB with Alpha (Transparency):
+    The 4th value is the ALPHA (opacity):
+      0 = fully transparent
+      1 = fully opaque
+
+    color: rgba(255, 0, 0, 1);      /* Solid red */
+    color: rgba(255, 0, 0, 0.5);    /* 50% transparent red */
+    color: rgba(0, 0, 0, 0.3);      /* Subtle dark overlay */
+
+    /* Great for overlays and semi-transparent backgrounds */
+    background-color: rgba(0, 0, 0, 0.5);
+
+────────────────────────────────────────
+C) HEX (Hexadecimal) — Bonus
+────────────────────────────────────────
+
+Hex is the most common format in professional web development.
+
+Syntax:  #RRGGBB  (each pair is 00–FF in hexadecimal)
+
+    color: #ff0000;    /* Red   (FF=255, 00=0, 00=0) */
+    color: #00ff00;    /* Green */
+    color: #0000ff;    /* Blue */
+    color: #000000;    /* Black */
+    color: #ffffff;    /* White */
+    color: #ff6347;    /* Tomato */
+    color: #4b0082;    /* Indigo */
+
+Shorthand (when each pair repeats):
+    #ff0000  →  #f00
+    #ffffff  →  #fff
+    #000000  →  #000
+    #aabbcc  →  #abc
+
+Full example using different color formats:
+
+    body {
+        background-color: #f0f4f8;          /* light blue-gray hex */
+    }
+
+    h1 {
+        color: rgb(30, 60, 90);             /* dark blue rgb */
+    }
+
+    .card {
+        background-color: white;
+        border: 2px solid rgba(0, 0, 0, 0.1);  /* subtle border */
+    }
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.6);  /* dark transparent overlay */
+        color: white;
+    }
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+15. CSS UNITS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CSS uses units to specify sizes. Choosing the right unit matters for
+responsive, flexible designs.
+
+────────────────────────────────────────
+A) px — Pixels (Fixed Unit)
+────────────────────────────────────────
+
+px is an ABSOLUTE unit. 1px = 1 pixel on the screen.
+The size is FIXED — it does not change no matter what.
+
+    h1 { font-size: 32px; }
+    .box { width: 200px; height: 100px; }
+    p { margin-bottom: 16px; }
+
+When to use:
+  - Borders  →  border: 1px solid black;
+  - Small precise measurements
+  - When you need exact pixel-perfect control
+
+Drawback: Does NOT scale well on different screen sizes or when users
+          change their browser font size.
+
+────────────────────────────────────────
+B) % — Percentage (Relative to Parent)
+────────────────────────────────────────
+
+% is RELATIVE to the parent element's size.
+If the parent is 1000px wide and you set width: 50%, the element is 500px wide.
+
+    .container { width: 80%; }     /* 80% of the page width */
+
+    .child { width: 50%; }
+    /* If .parent is 600px wide → .child = 300px */
+
+    img { width: 100%; }           /* image fills its container */
+
+Examples:
+
+    .hero {
+        width: 100%;               /* full width of the parent */
+        height: 60%;               /* 60% of parent height */
+    }
+
+    .sidebar { width: 30%; }
+    .main-content { width: 70%; }
+
+When to use:
+  - Layout widths and heights
+  - Making elements fluid and responsive
+  - Dividing space between sections
+
+────────────────────────────────────────
+C) vh — Viewport Height
+────────────────────────────────────────
+
+1vh = 1% of the total VISIBLE height of the browser window (viewport).
+100vh = the full height of the screen.
+
+    .hero-section {
+        height: 100vh;             /* exactly as tall as the screen */
+        background-color: navy;
+        color: white;
+    }
+
+    .half-screen {
+        height: 50vh;              /* half the screen height */
+    }
+
+When to use:
+  - Full-screen hero/banner sections
+  - Making a section fill the entire viewport
+  - Sticky footers and full-page layouts
+
+────────────────────────────────────────
+D) vw — Viewport Width
+────────────────────────────────────────
+
+1vw = 1% of the total VISIBLE width of the browser window.
+100vw = the full width of the screen.
+
+    .full-width-banner {
+        width: 100vw;              /* spans the entire screen width */
+        background-color: #333;
+    }
+
+    h1 {
+        font-size: 5vw;            /* font scales with screen width */
+    }
+
+When to use:
+  - Full-width elements regardless of container
+  - Responsive typography that scales with the screen
+
+────────────────────────────────────────
+E) rem — Root EM (Relative to Root)
+────────────────────────────────────────
+
+rem is relative to the font-size of the ROOT element (<html>).
+By default, the browser root font-size is 16px.
+
+So:
+    1rem  = 16px  (default)
+    2rem  = 32px
+    0.5rem = 8px
+    1.5rem = 24px
+
+    html {
+        font-size: 16px;    /* default root size — you can change this */
+    }
+
+    h1 { font-size: 2rem; }     /* 2 × 16 = 32px */
+    h2 { font-size: 1.5rem; }   /* 1.5 × 16 = 24px */
+    p  { font-size: 1rem; }     /* 1 × 16 = 16px */
+    small { font-size: 0.75rem; }  /* 0.75 × 16 = 12px */
+
+Tip: If you set html { font-size: 10px; }, then:
+    1rem = 10px  → math becomes MUCH easier!
+    2rem = 20px, 1.6rem = 16px, 2.4rem = 24px, etc.
+
+Why rem is great:
+  - Scales consistently across the ENTIRE page
+  - Respects user's browser font-size preference (accessibility!)
+  - Easy to control the whole site's scale from one place
+
+────────────────────────────────────────
+UNIT COMPARISON TABLE
+────────────────────────────────────────
+
+  Unit  Relative To              Example Use
+  ────  ───────────────────────  ───────────────────────────────────────
+  px    Nothing (fixed)          border: 1px; exact measurements
+  %     Parent element           width: 50%; fill half of parent
+  vh    Viewport height          height: 100vh; full screen sections
+  vw    Viewport width           width: 100vw; full-width banners
+  rem   Root (<html>) font-size  font-size: 1.5rem; scalable typography
+
+Pro tip: Use rem for fonts, px for borders/shadows, % and vh/vw for layouts.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+16. THE CSS BOX MODEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CRITICAL CONCEPT: Every single HTML element is a rectangular BOX.
+The Box Model describes the space each element takes up.
+
+The box model has 4 layers (from inside to outside):
+
+    ┌───────────────────────────────────────────────┐
+    │                   MARGIN                      │  ← Space OUTSIDE the border
+    │   ┌───────────────────────────────────────┐   │
+    │   │               BORDER                  │   │  ← The visible border line
+    │   │   ┌───────────────────────────────┐   │   │
+    │   │   │            PADDING            │   │   │  ← Space INSIDE the border
+    │   │   │   ┌───────────────────────┐   │   │   │
+    │   │   │   │       CONTENT         │   │   │   │  ← Actual text/image/etc.
+    │   │   │   │  (width × height)     │   │   │   │
+    │   │   │   └───────────────────────┘   │   │   │
+    │   │   └───────────────────────────────┘   │   │    h1 heading h1
+    │   └───────────────────────────────────────┘   │
+    └───────────────────────────────────────────────┘
+
+────────────────────────────────────────
+A) CONTENT
+────────────────────────────────────────
+The actual content of the element — text, image, video, etc.
+Controlled by: width and height properties.
+
+    .box {
+        width: 300px;
+        height: 150px;
+    }
+
+────────────────────────────────────────
+B) PADDING
+────────────────────────────────────────
+Space between the CONTENT and the BORDER.
+Padding is INSIDE the element — it has the same background color as the element.
+
+    .box {
+        padding: 20px;                     /* all four sides = 20px */
+        padding: 10px 20px;                /* top/bottom=10, left/right=20 */
+        padding: 10px 20px 30px 40px;      /* top right bottom left (clockwise) */
+    }
+
+    /* Longhand */
+    .box {
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+Visual example:
+    button {
+        padding: 12px 24px;    /* comfortable clickable area */
+    }
+    /* Without padding: [Click Me] — tiny, hard to click */
+    /* With padding:    [   Click Me   ] — nice and clickable */
+
+────────────────────────────────────────
+C) BORDER
+────────────────────────────────────────
+A line that goes AROUND the padding and content.
+Three values: width, style, color.
+
+    .box {
+        border: 2px solid black;            /* shorthand */
+        border: 1px dashed red;
+        border: 3px dotted blue;
+    }
+
+    /* Longhand */
+    .box {
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+    }
+
+    /* One side only */
+    .box {
+        border-bottom: 3px solid orange;    /* underline-style effect */
+        border-left: 5px solid blue;        /* left accent bar */
+    }
+
+Border styles: solid, dashed, dotted, double, groove, ridge, none, hidden
+
+    /* Rounded corners */
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 12px;        /* rounds all corners */
+    }
+
+    .circle {
+        border-radius: 50%;         /* makes a perfect circle! */
+    }
+
+────────────────────────────────────────
+D) MARGIN
+────────────────────────────────────────
+Space OUTSIDE the border — the gap between this element and other elements.
+Margin is TRANSPARENT (shows the background of the parent).
+
+    .box {
+        margin: 20px;                          /* all sides */
+        margin: 10px 20px;                     /* top/bottom left/right */
+        margin: 10px 20px 30px 40px;           /* top right bottom left */
+    }
+
+    /* Center a block element horizontally */
+    .container {
+        width: 800px;
+        margin: 0 auto;       /* top/bottom=0, left/right=auto = centered! */
+    }
+
+    /* Longhand */
+    .box {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+
+IMPORTANT — Margin Collapse:
+Vertical margins between two elements COLLAPSE (merge) into the larger value.
+    p { margin-bottom: 30px; }
+    h2 { margin-top: 20px; }
+    /* Gap between p and h2 = 30px (NOT 50px) — the larger one wins */
+
+────────────────────────────────────────
+E) box-sizing: border-box
+────────────────────────────────────────
+
+By DEFAULT, when you set width: 300px, that is ONLY the content width.
+Padding and border are ADDED ON TOP, making the element wider than you expected!
+
+Default behavior (content-box):
+    .box {
+        width: 300px;
+        padding: 20px;
+        border: 5px solid black;
+    }
+    /* Actual total width = 300 + 20 + 20 + 5 + 5 = 350px  ← SURPRISE! */
+
+With border-box:
+    .box {
+        box-sizing: border-box;
+        width: 300px;
+        padding: 20px;
+        border: 5px solid black;
+    }
+    /* Total width = EXACTLY 300px — padding/border are included INSIDE */
+    /* Content area = 300 - 40 (padding) - 10 (border) = 250px */
+
+BEST PRACTICE — Apply border-box globally to ALL elements:
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+This is added at the top of EVERY professional CSS file.
+It makes layout math predictable and saves you from many headaches.
+
+Full box model example:
+
+    .card {
+        box-sizing: border-box;
+        width: 320px;
+        height: auto;
+        padding: 24px;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        margin: 16px;
+        background-color: white;
+    }
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+17. FLEXBOX
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Flexbox is a powerful CSS layout system that makes it easy to:
+  - Align items horizontally and vertically
+  - Distribute space between items
+  - Build navigation bars, card grids, and page layouts
+
+To use Flexbox, add display: flex; to the PARENT (container).
+The CHILDREN automatically become "flex items."
+
+    .container {
+        display: flex;
+    }
+
+────────────────────────────────────────
+CORE FLEXBOX PROPERTIES (on the parent):
+────────────────────────────────────────
+
+    .container {
+        display: flex;
+
+        /* Direction of items */
+        flex-direction: row;            /* default: left to right */
+        flex-direction: column;         /* top to bottom */
+        flex-direction: row-reverse;    /* right to left */
+        flex-direction: column-reverse; /* bottom to top */
+
+        /* Horizontal alignment (main axis) */
+        justify-content: flex-start;    /* default: pack to start */
+        justify-content: flex-end;      /* pack to end */
+        justify-content: center;        /* center horizontally */
+        justify-content: space-between; /* equal space BETWEEN items */
+        justify-content: space-around;  /* equal space AROUND items */
+        justify-content: space-evenly;  /* perfectly equal space everywhere */
+
+        /* Vertical alignment (cross axis) */
+        align-items: stretch;           /* default: stretch to fill height */
+        align-items: flex-start;        /* align to top */
+        align-items: flex-end;          /* align to bottom */
+        align-items: center;            /* center vertically */
+    }
+
+Perfectly centering something (vertically AND horizontally):
+
+    .centered-box {
+        display: flex;
+        justify-content: center;    /* horizontal center */
+        align-items: center;        /* vertical center */
+        height: 100vh;              /* needs a height to center vertically */
+    }
+
+────────────────────────────────────────
+A) gap
+────────────────────────────────────────
+
+gap adds space BETWEEN flex items — clean and simple.
+No more margin hacks!
+
+    .container {
+        display: flex;
+        gap: 20px;              /* 20px between ALL items */
+        gap: 10px 20px;         /* 10px vertical, 20px horizontal */
+    }
+
+Example — Navigation bar:
+
+    nav {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        background-color: #222;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+Example — Card grid:
+
+    .card-container {
+        display: flex;
+        gap: 16px;
+        padding: 24px;
+    }
+
+    .card {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        flex: 1;                /* each card grows equally */
+    }
+
+────────────────────────────────────────
+B) flex-wrap
+────────────────────────────────────────
+
+By default, flex items all try to fit on ONE LINE (even if they overflow).
+flex-wrap controls whether items wrap onto the next line.
+
+    .container {
+        display: flex;
+        flex-wrap: nowrap;      /* default: all on one line, may overflow */
+        flex-wrap: wrap;        /* wrap to next line if needed */
+        flex-wrap: wrap-reverse;/* wrap to next line, reversed */
+    }
+
+Without flex-wrap (items shrink and overflow):
+    [card1][card2][card3][card4][card5][card6] ← all squished on one line
+
+With flex-wrap: wrap (items wrap naturally):
+    [card1][card2][card3]
+    [card4][card5][card6]  ← neat wrap to next row
+
+Responsive card grid example:
+
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .grid-item {
+        flex: 1 1 250px;       /* grow, shrink, minimum width 250px */
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+    }
+    /* On a wide screen: 4 cards per row
+       On a tablet:      2 cards per row
+       On mobile:        1 card per row
+       All automatically! No media queries needed for this basic layout. */
+
+FLEX ITEM PROPERTIES (on the children):
+
+    .item {
+        flex-grow: 1;       /* how much to GROW relative to siblings */
+        flex-shrink: 1;     /* how much to SHRINK relative to siblings */
+        flex-basis: 200px;  /* starting width before grow/shrink */
+        flex: 1;            /* shorthand for flex-grow:1 flex-shrink:1 flex-basis:0 */
+    }
+
+    /* Make one item twice as wide as others */
+    .featured { flex: 2; }
+    .regular  { flex: 1; }
+
+Full flexbox example — navbar + cards:
+
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 32px;
+        background-color: #1a1a2e;
+        color: white;
+    }
+
+    .nav-logo { font-size: 1.5rem; font-weight: bold; }
+
+    .nav-links {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+    }
+
+    /* Card layout */
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        padding: 40px;
+        justify-content: center;
+    }
+
+    .card {
+        flex: 1 1 280px;
+        max-width: 320px;
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+18. CSS POSITION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The position property controls HOW an element is placed in the document.
+Used with: top, right, bottom, left properties to move elements.
+
+    .element {
+        position: static;       /* default */
+        top: 20px;
+        left: 30px;
+        right: 10px;
+        bottom: 0;
+    }
+
+The five position values: static, relative, absolute, fixed, sticky
+
+────────────────────────────────────────
+A) position: static (default)
+────────────────────────────────────────
+
+Every element starts with position: static.
+It flows normally in the document. top/left/right/bottom have NO effect.
+
+    .box {
+        position: static;    /* normal flow — nothing special */
+    }
+
+────────────────────────────────────────
+B) position: relative
+────────────────────────────────────────
+
+The element is positioned RELATIVE TO ITS OWN NORMAL POSITION.
+It stays in the document flow (takes up its original space).
+Other elements are NOT affected by its movement.
+
+    .box {
+        position: relative;
+        top: 20px;       /* move 20px DOWN from where it would normally be */
+        left: 30px;      /* move 30px RIGHT from where it would normally be */
+    }
+
+Common uses:
+  1. Slight visual nudge without affecting layout
+  2. Creating a POSITIONED PARENT for absolutely positioned children
+
+Example:
+
+    .nudged {
+        position: relative;
+        top: -5px;              /* move it slightly up */
+    }
+
+    /* parent for absolute children */
+    .card {
+        position: relative;      /* makes this a reference point */
+        width: 300px;
+        height: 200px;
+    }
+
+────────────────────────────────────────
+C) position: absolute
+────────────────────────────────────────
+
+The element is REMOVED from the normal document flow (no space left for it).
+It is positioned relative to its NEAREST POSITIONED ANCESTOR
+(an ancestor with position: relative, absolute, fixed, or sticky).
+If no positioned ancestor exists, it positions relative to the <html> element.
+
+    .parent {
+        position: relative;     /* anchor point */
+        width: 400px;
+        height: 300px;
+        background: lightblue;
+    }
+
+    .child {
+        position: absolute;
+        top: 10px;              /* 10px from top of .parent */
+        right: 10px;            /* 10px from right of .parent */
+        width: 100px;
+        height: 50px;
+        background: red;
+    }
+
+Real-world use cases:
+
+    /* Badge/notification dot on an icon */
+    .icon-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 18px;
+        height: 18px;
+        background: red;
+        color: white;
+        border-radius: 50%;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Text overlay on an image */
+    .image-card {
+        position: relative;
+        width: 300px;
+    }
+
+    .image-card img {
+        width: 100%;
+        display: block;
+    }
+
+    .image-card .caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 12px;
+    }
+
+────────────────────────────────────────
+D) position: fixed
+────────────────────────────────────────
+
+The element is removed from the document flow AND is positioned relative to
+the VIEWPORT (the browser window). It STAYS IN PLACE when you scroll.
+
+    .navbar {
+        position: fixed;
+        top: 0;                 /* stick to the very top */
+        left: 0;
+        width: 100%;
+        background: white;
+        z-index: 1000;          /* stay above other content */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Back to top button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: blue;
+        color: white;
+        padding: 12px 16px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    /* Cookie consent banner */
+    .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #333;
+        color: white;
+        padding: 16px;
+        text-align: center;
+    }
+
+NOTE: Fixed elements can cover page content. Add padding-top to the body
+      equal to the navbar height to prevent overlap:
+          body { padding-top: 70px; }
+
+────────────────────────────────────────
+E) position: sticky
+────────────────────────────────────────
+
+sticky is a HYBRID of relative and fixed.
+The element behaves as relative UNTIL the user scrolls to a threshold,
+then it becomes fixed (sticks in place).
+
+It stays within its PARENT element — it won't go beyond the parent's boundary.
+
+    .section-header {
+        position: sticky;
+        top: 0;                 /* sticks when it reaches the top of the screen */
+        background: white;
+        padding: 16px;
+        font-weight: bold;
+        border-bottom: 1px solid #eee;
+        z-index: 10;
+    }
+
+    .table-header {
+        position: sticky;
+        top: 70px;              /* sticks 70px from top (below a fixed navbar) */
+        background: #f5f5f5;
+    }
+
+    /* Sticky sidebar */
+    .sidebar {
+        position: sticky;
+        top: 80px;              /* stays visible while scrolling the content */
+        height: fit-content;
+    }
+
+Common use case — Section headings in a long list:
+    <div class="contacts">
+        <h3 class="letter-header">A</h3>   ← sticks while A contacts are visible
+        <div>Alice</div>
+        <div>Amy</div>
+        <h3 class="letter-header">B</h3>   ← then this sticks
+        <div>Bob</div>
+        ...
+    </div>
+
+    .letter-header {
+        position: sticky;
+        top: 0;
+        background: #eee;
+        padding: 8px 16px;
+        margin: 0;
+    }
+
+────────────────────────────────────────
+POSITION COMPARISON TABLE
+────────────────────────────────────────
+
+  Value     In Flow?  Moves With         Use Case
+  ────────  ────────  ─────────────────  ──────────────────────────────────────
+  static    YES       Normal layout      Default, no special positioning
+  relative  YES       Its own position   Nudging, creating positioned parent
+  absolute  NO        Nearest positioned Badges, overlays, tooltips, dropdowns
+                      ancestor
+  fixed     NO        Viewport           Sticky navbars, floating buttons
+  sticky    YES→NO    Viewport (hybrid)  Sticky table headers, section labels
+
+────────────────────────────────────────
+Z-INDEX — Who appears ON TOP?
+────────────────────────────────────────
+
+When positioned elements overlap, z-index decides which one appears on top.
+Higher z-index = appears on top.
+
+    .modal-overlay {
+        position: fixed;
+        z-index: 900;      /* behind modal */
+    }
+
+    .modal {
+        position: fixed;
+        z-index: 1000;     /* on top of overlay */
+    }
+
+    .tooltip {
+        position: absolute;
+        z-index: 500;
+    }
+
+z-index ONLY works on elements that have a position value other than static.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  QUICK REFERENCE CHEAT SHEET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CSS Ways to Apply:
+    Inline:    <p style="color:red;">          highest priority
+    Internal:  <style> in <head>
+    External:  <link> to .css file             best practice
+
+  Selectors:
+    p          { }    Element
+    .name      { }    Class        (dot)
+    #name      { }    ID           (hash, unique)
+
+  Specificity:  inline > #id > .class > element > * (universal)
+
+  Colors:
+    color: red;                name
+    color: rgb(255, 0, 0);     rgb
+    color: #ff0000;            hex
+    color: rgba(0,0,0, 0.5);   transparent
+
+  Units:
+    px    fixed
+    %     relative to parent
+    vh    viewport height
+    vw    viewport width
+    rem   relative to html font-size (16px default)
+
+  Box Model (outside → in):
+    margin > border > padding > content
+    box-sizing: border-box;   ← always set this!
+
+  Flexbox:
+    display: flex;
+    flex-direction: row | column
+    justify-content: center | space-between | flex-end ...
+    align-items: center | flex-start | flex-end ...
+    gap: 20px;
+    flex-wrap: wrap;
+
+  Position:
+    static    → default, normal flow
+    relative  → shift from own position, creates reference for children
+    absolute  → removed from flow, positioned to nearest relative parent
+    fixed     → stuck to viewport, stays on scroll
+    sticky    → relative until scroll threshold, then fixed within parent
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  END OF WEEK TWO - DAY 1 NOTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
